@@ -40,7 +40,27 @@ For portal-style layouts (wizard pages, review cards, order lines), see [portal-
 </core:if>
 ```
 
-## 3. Radio-like option list (modal-safe)
+## 3. Button select row (option list)
+
+Use explicit `equals=""` for empty initial state, then one block per selected value.
+
+```xml
+<state:set path="form.selected_full_name" value="" mode="unset" />
+
+<core:stack gap="xs">
+  <core:if path="form.selected_full_name" equals="">
+    <core:button variant="subtle" setPath="form.selected_full_name" setValue="Sarah Marie Johnson" style='{"width":"100%","justifyContent":"flex-start"}'>Sarah Marie Johnson</core:button>
+    <core:button variant="subtle" setPath="form.selected_full_name" setValue="Other Name" style='{"width":"100%","justifyContent":"flex-start"}'>Other Name</core:button>
+  </core:if>
+
+  <core:if path="form.selected_full_name" equals="Sarah Marie Johnson">
+    <core:button variant="subtle" color="blue" setPath="form.selected_full_name" setValue="Sarah Marie Johnson" style='{"width":"100%","justifyContent":"flex-start","background":"rgba(5,23,255,0.08)"}'>Sarah Marie Johnson (selected)</core:button>
+    <core:button variant="subtle" setPath="form.selected_full_name" setValue="Other Name" style='{"width":"100%","justifyContent":"flex-start"}'>Other Name</core:button>
+  </core:if>
+</core:stack>
+```
+
+## 3b. Radio-like option list (legacy / modal-safe)
 
 Use explicit `equals=""` for empty initial state, then one block per selected value.
 
@@ -56,14 +76,14 @@ Use explicit `equals=""` for empty initial state, then one block per selected va
 
   <!-- Selected A -->
   <core:if path="form.reason" equals="a">
-    <core:button variant="subtle" color="orange" setPath="form.reason" setValue="a" style='{"width":"100%","justifyContent":"flex-start","background":"#fff4ed"}'>Option A (selected)</core:button>
+    <core:button variant="subtle" color="blue" setPath="form.reason" setValue="a" style='{"width":"100%","justifyContent":"flex-start","background":"rgba(5,23,255,0.08)"}'>Option A (selected)</core:button>
     <core:button variant="subtle" setPath="form.reason" setValue="b" style='{"width":"100%","justifyContent":"flex-start"}'>Option B</core:button>
   </core:if>
 
   <!-- Selected B -->
   <core:if path="form.reason" equals="b">
     <core:button variant="subtle" setPath="form.reason" setValue="a" style='{"width":"100%","justifyContent":"flex-start"}'>Option A</core:button>
-    <core:button variant="subtle" color="orange" setPath="form.reason" setValue="b" style='{"width":"100%","justifyContent":"flex-start","background":"#fff4ed"}'>Option B (selected)</core:button>
+    <core:button variant="subtle" color="blue" setPath="form.reason" setValue="b" style='{"width":"100%","justifyContent":"flex-start","background":"rgba(5,23,255,0.08)"}'>Option B (selected)</core:button>
   </core:if>
 </core:stack>
 ```
@@ -79,7 +99,7 @@ Use explicit `equals=""` for empty initial state, then one block per selected va
     <core:title order="3">Main form</core:title>
     <core:textInput label="Field" path="form.field" />
 
-    <core:button variant="light" color="orange" setPath="form.modal_open" setValue="yes">
+    <core:button variant="light" color="blue" setPath="form.modal_open" setValue="yes">
       Open dialog
     </core:button>
 
@@ -96,7 +116,7 @@ Use explicit `equals=""` for empty initial state, then one block per selected va
 
             <core:group gap="sm" justify="flex-end">
               <core:button variant="default" setPath="form.modal_open" setValue="no">Cancel</core:button>
-              <core:button variant="filled" color="orange" setPath="form.modal_open" setValue="no">Confirm</core:button>
+              <core:button variant="filled" color="blue" setPath="form.modal_open" setValue="no">Confirm</core:button>
             </core:group>
           </core:stack>
         </core:paper>
@@ -139,8 +159,61 @@ For section type chooser with values `menu`, `full_name`, `email_address`, etc.:
 
 Prefer explicit `equals` per value over nested `notEquals` filters.
 
-## 6. Convert checklist (foreign XML → compatible DSL)
+## 7. Item issue card (header band + checkboxes)
 
+One item per card. No shadow. See [DSL/confirm-issues.dsl.xml](DSL/confirm-issues.dsl.xml).
+
+```xml
+<state:set path="form.issue_item_damaged" value="false" mode="unset" />
+<state:set path="form.issue_item_wrong" value="false" mode="unset" />
+<state:set path="form.issue_item_missing" value="false" mode="unset" />
+
+<core:card withBorder="true" padding="0" radius="md">
+  <core:stack gap="0">
+    <core:paper p="md" radius="0" style='{"background":"#F5F5F5"}'>
+      <core:stack gap="xs">
+        <core:text fw="600" size="sm">Dishwasher - Stainless Steel</core:text>
+        <core:text size="xs" c="dimmed">SKU: DISH-2024-SS • Order #WX73924856</core:text>
+      </core:stack>
+    </core:paper>
+    <core:paper p="md" radius="0">
+      <core:stack gap="sm">
+        <core:checkbox path="form.issue_item_damaged" label="Damaged item" />
+        <core:checkbox path="form.issue_item_wrong" label="Received wrong item" />
+        <core:checkbox path="form.issue_item_missing" label="Missing parts or accessories" />
+      </core:stack>
+    </core:paper>
+  </core:stack>
+</core:card>
+```
+
+## 8. Single-column intake sections
+
+Bordered inset panels for field groups. See [DSL/customer-request-classification.dsl.xml](DSL/customer-request-classification.dsl.xml).
+
+```xml
+<core:paper withBorder="true" radius="md" p="md">
+  <core:textarea label="Customer request" path="form.customer_request" autosize="true" minRows="3" withAsterisk="true" />
+</core:paper>
+
+<core:divider />
+
+<core:stack gap="sm">
+  <core:text fw="600" size="sm">Classify the customer's need</core:text>
+  <core:paper withBorder="true" radius="md" p="md">
+    <core:radioGroup path="form.need_classification" withAsterisk="true">
+      <core:stack gap="xs">
+        <core:radio value="post_order" label="Post order" size="md" />
+        <core:radio value="pre_order" label="Pre order" size="md" />
+      </core:stack>
+    </core:radioGroup>
+  </core:paper>
+</core:stack>
+```
+
+## 9. Convert checklist (foreign XML → compatible DSL)
+
+0. **Preserve** every `form.*` path, `state:set` value, and radio/checkbox option `value` unless the user asked to change them
 1. Run `compat-fix-dsl.mjs --input ... --output ...`
 2. Verify all `<core:button>` use `setPath`/`setValue`
 3. Replace any remaining `position: fixed` with container-safe modal (pattern 4)

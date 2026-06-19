@@ -137,7 +137,7 @@ Bind value fields with `path="form.field"`.
 </core:radioGroup>
 ```
 
-`core:radio` props: `value`, `label`, `size`, `disabled` (no `path`).
+`path` goes on the group, not each radio. See [portal-patterns.md](portal-patterns.md).
 
 ## Disclosure
 
@@ -165,7 +165,7 @@ Child tags: `core:accordionItem`, `core:accordionControl`, `core:accordionPanel`
 State updates: `setPath` + `setValue`. **Not** `path`/`value`.
 
 ```xml
-<core:button variant="filled" color="orange" setPath="form.step" setValue="2">Next</core:button>
+<core:button variant="filled" color="blue" setPath="form.step" setValue="2">Next</core:button>
 <core:button action="submitForm">Submit</core:button>
 ```
 

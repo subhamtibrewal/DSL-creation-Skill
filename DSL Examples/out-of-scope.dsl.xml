@@ -1,0 +1,14 @@
+<core:card withBorder="true" padding="0" radius="md">
+  <core:stack gap="0">
+    <core:paper p="md" radius="0" style='{"background":"#F5F5F5"}'>
+      <core:text fw="600" size="lg">
+        This conversation type is currently out of scope.
+      </core:text>
+    </core:paper>
+    <core:paper p="md" radius="0">
+      <core:text size="sm" c="dimmed">
+        No actions are currently available for this conversation type.
+      </core:text>
+    </core:paper>
+  </core:stack>
+</core:card>

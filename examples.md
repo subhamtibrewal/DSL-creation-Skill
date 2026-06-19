@@ -57,7 +57,7 @@ Self-contained XML snippets. Copy wholesale into a `.dsl.xml` file.
 
     <core:if path="form.verified" equals="pending">
       <core:text size="sm">Customer verification is pending.</core:text>
-      <core:button variant="light" color="orange" setPath="form.modal_open" setValue="yes">
+      <core:button variant="light" color="blue" setPath="form.modal_open" setValue="yes">
         Unable to verify
       </core:button>
     </core:if>
@@ -83,28 +83,28 @@ Self-contained XML snippets. Copy wholesale into a `.dsl.xml` file.
               </core:if>
 
               <core:if path="form.unable_reason" equals="missing_info">
-                <core:button variant="subtle" color="orange" setPath="form.unable_reason" setValue="missing_info" style='{"width":"100%","justifyContent":"flex-start","background":"#fff4ed"}'>Missing required information</core:button>
+                <core:button variant="subtle" color="blue" setPath="form.unable_reason" setValue="missing_info" style='{"width":"100%","justifyContent":"flex-start","background":"rgba(5,23,255,0.08)"}'>Missing required information</core:button>
                 <core:button variant="subtle" setPath="form.unable_reason" setValue="no_match" style='{"width":"100%","justifyContent":"flex-start"}'>Information does not match</core:button>
                 <core:button variant="subtle" setPath="form.unable_reason" setValue="other" style='{"width":"100%","justifyContent":"flex-start"}'>Other</core:button>
               </core:if>
 
               <core:if path="form.unable_reason" equals="no_match">
                 <core:button variant="subtle" setPath="form.unable_reason" setValue="missing_info" style='{"width":"100%","justifyContent":"flex-start"}'>Missing required information</core:button>
-                <core:button variant="subtle" color="orange" setPath="form.unable_reason" setValue="no_match" style='{"width":"100%","justifyContent":"flex-start","background":"#fff4ed"}'>Information does not match</core:button>
+                <core:button variant="subtle" color="blue" setPath="form.unable_reason" setValue="no_match" style='{"width":"100%","justifyContent":"flex-start","background":"rgba(5,23,255,0.08)"}'>Information does not match</core:button>
                 <core:button variant="subtle" setPath="form.unable_reason" setValue="other" style='{"width":"100%","justifyContent":"flex-start"}'>Other</core:button>
               </core:if>
 
               <core:if path="form.unable_reason" equals="other">
                 <core:button variant="subtle" setPath="form.unable_reason" setValue="missing_info" style='{"width":"100%","justifyContent":"flex-start"}'>Missing required information</core:button>
                 <core:button variant="subtle" setPath="form.unable_reason" setValue="no_match" style='{"width":"100%","justifyContent":"flex-start"}'>Information does not match</core:button>
-                <core:button variant="subtle" color="orange" setPath="form.unable_reason" setValue="other" style='{"width":"100%","justifyContent":"flex-start","background":"#fff4ed"}'>Other</core:button>
+                <core:button variant="subtle" color="blue" setPath="form.unable_reason" setValue="other" style='{"width":"100%","justifyContent":"flex-start","background":"rgba(5,23,255,0.08)"}'>Other</core:button>
                 <core:textarea label="Details" path="form.unable_details" autosize="true" minRows="2" withAsterisk="true" />
               </core:if>
             </core:stack>
 
             <core:group gap="sm" justify="flex-end">
               <core:button variant="default" setPath="form.modal_open" setValue="no">Cancel</core:button>
-              <core:button variant="filled" color="orange" setPath="form.verified" setValue="no" action="submitForm">Confirm</core:button>
+              <core:button variant="filled" color="blue" setPath="form.verified" setValue="no" action="submitForm">Confirm</core:button>
             </core:group>
           </core:stack>
         </core:paper>

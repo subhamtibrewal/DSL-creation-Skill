@@ -1,0 +1,45 @@
+<state:set path="form.customer_request" value="" mode="unset" />
+<state:set path="form.need_classification" value="" mode="unset" />
+
+<core:card padding="lg" withBorder="true" radius="md">
+  <core:stack gap="lg">
+    <core:group justify="space-between" align="flex-start" wrap="nowrap">
+      <core:stack gap="xs">
+        <core:title order="3">What is the customer asking about?</core:title>
+        <core:text size="sm" c="dimmed">
+          Describe the customer's request in your own words. This helps route the conversation correctly.
+        </core:text>
+      </core:stack>
+      <core:badge color="blue" variant="light">Request intake</core:badge>
+    </core:group>
+
+    <core:stack gap="md">
+      <core:paper withBorder="true" radius="md" p="md">
+        <core:textarea
+          label="Customer request"
+          path="form.customer_request"
+          withAsterisk="true"
+          autosize="true"
+          minRows="3"
+          placeholder="e.g. Customer wants to change the delivery address on order #12345"
+        />
+      </core:paper>
+
+      <core:divider />
+
+      <core:stack gap="sm">
+        <core:text fw="600" size="sm">Classify the customer's need</core:text>
+
+        <core:paper withBorder="true" radius="md" p="md">
+          <core:radioGroup path="form.need_classification" withAsterisk="true">
+            <core:stack gap="xs">
+              <core:radio value="post_order" label="Post order" size="md" />
+              <core:radio value="pre_order" label="Pre order" size="md" />
+              <core:radio value="something_else" label="Something else" size="md" />
+            </core:stack>
+          </core:radioGroup>
+        </core:paper>
+      </core:stack>
+    </core:stack>
+  </core:stack>
+</core:card>

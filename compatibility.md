@@ -2,6 +2,10 @@
 
 Engine: `@melodyarc/ma_dynamic_form` with `@mantine/core` v7+.
 
+## Preserve pathing on convert
+
+When fixing or converting existing DSL, **do not rename `form.*` paths, change option `value` strings, or add/remove fields** unless the user explicitly requests it. Allowed changes: `core:` prefix, button `setPath`/`setValue`, style sanitization, and other engine compatibility fixes ([SKILL.md](SKILL.md#preserve-functionality-and-pathing-default)).
+
 ## Button state wiring
 
 Buttons that update runtime state **must** use:
@@ -104,7 +108,7 @@ Inline `style='{"key":"value"}'` JSON is filtered. Only these keys survive:
 | `lineHeight: 1.45` | `lh="1.45"` |
 | borders | `withBorder="true"` |
 | box shadow | `shadow="md"` on `core:card` / `core:paper` |
-| colors | `c="dimmed"`, `color="orange"` |
+| colors | `c="dimmed"`, `color="blue"` on buttons/badges where needed |
 
 **Allowed inline backgrounds** used in portal review forms: `style='{"background":"rgba(0,0,0,0.02)"}'` for inset panels, `style='{"background":"rgba(255,0,0,0.03)"}'` for rejection areas.
 
@@ -202,7 +206,6 @@ When building XML from runtime data (order lines, decoy answers, messages), esca
 | Section headers show, options hidden | `notEquals` + empty string, or missing `equals=""` block |
 | Modal opens but title/options clipped | `justifyContent: center` in tall form — use `flex-end` |
 | Modal invisible | `position: fixed` stripped; use container-safe pattern |
-| Selected row styling missing | `border`/`boxShadow` stripped — use `background`, `withBorder`, `shadow` |
 | Radio group does not bind | `path` on `radioGroup`, not on each `radio` |
 | Nothing renders after load | `maxNodes` exceeded or invalid XML |
 | state:set ignored | Not using `MarkupRenderer` |

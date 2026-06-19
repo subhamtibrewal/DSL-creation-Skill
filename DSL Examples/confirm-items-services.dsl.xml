@@ -1,0 +1,635 @@
+<state:set path="form.search" value="" mode="unset" />
+<state:set path="form.confirm_items_collapsed" value="no" mode="unset" />
+<state:set path="form.order_wx73924856_details_open" value="no" mode="unset" />
+<state:set path="form.order_ox45128763_details_open" value="no" mode="unset" />
+<state:set path="form.order_wx92146537_details_open" value="no" mode="unset" />
+<state:set path="form.wx73924856_modal_select_all" value="false" mode="unset" />
+<state:set path="form.ox45128763_modal_select_all" value="false" mode="unset" />
+<state:set path="form.wx92146537_modal_select_all" value="false" mode="unset" />
+<state:set path="form.item_wx73924856_dishwasher" value="false" mode="unset" />
+<state:set path="form.item_wx73924856_hose_kit" value="false" mode="unset" />
+<state:set path="form.item_ox45128763_refrigerator" value="false" mode="unset" />
+<state:set path="form.item_ox45128763_water_filter" value="false" mode="unset" />
+<state:set path="form.item_ox45128763_installation" value="false" mode="unset" />
+<state:set path="form.item_wx92146537_washer" value="false" mode="unset" />
+<state:set path="form.item_wx92146537_pedestal" value="false" mode="unset" />
+<state:set path="form.item_wx92146537_haul_away" value="false" mode="unset" />
+<state:set path="form.item_wx92146537_installation" value="false" mode="unset" />
+
+<core:card padding="lg" withBorder="true" radius="md" style='{"position":"relative"}'>
+  <core:stack gap="lg">
+    <core:group justify="space-between" align="flex-start" wrap="nowrap">
+      <core:group gap="md" align="flex-start" wrap="nowrap">
+        <core:badge color="blue" variant="light">Box</core:badge>
+        <core:stack gap="xs">
+          <core:title order="3">Confirm Items and Services</core:title>
+          <core:text size="sm" c="dimmed">Confirm the order and items the customer is contacting us about.</core:text>
+        </core:stack>
+      </core:group>
+      <core:if path="form.confirm_items_collapsed" equals="no">
+        <core:button
+          variant="subtle"
+          color="orange"
+          size="sm"
+          setPath="form.confirm_items_collapsed"
+          setValue="yes"
+        >Collapse</core:button>
+      </core:if>
+      <core:if path="form.confirm_items_collapsed" equals="yes">
+        <core:button
+          variant="subtle"
+          color="orange"
+          size="sm"
+          setPath="form.confirm_items_collapsed"
+          setValue="no"
+        >Expand</core:button>
+      </core:if>
+    </core:group>
+
+    <core:if path="form.confirm_items_collapsed" equals="no">
+      <core:text size="sm" c="dimmed">Select one or more items, then confirm the customer request.</core:text>
+
+      <core:stack gap="md">
+        <core:textInput path="form.search" placeholder="Search by order number or item..." />
+
+        <core:card withBorder="true" padding="0" radius="md">
+          <core:stack gap="0">
+            <core:paper p="md" radius="0" style='{"background":"#F5F5F5"}'>
+              <core:group justify="space-between" align="center" wrap="nowrap">
+                <core:stack gap="xs">
+                  <core:text fw="600" size="sm">Order #WX73924856</core:text>
+                  <core:text size="xs" c="dimmed">Oct 10, 2025 · $1,245.32</core:text>
+                </core:stack>
+                <core:button
+                  variant="subtle"
+                  color="blue"
+                  size="sm"
+                  setPath="form.order_wx73924856_details_open"
+                  setValue="yes"
+                >View Order Details</core:button>
+              </core:group>
+            </core:paper>
+            <core:paper p="md" radius="0">
+              <core:stack gap="sm">
+                <core:checkbox path="form.item_wx73924856_dishwasher" label="Dishwasher - Stainless Steel" />
+                <core:checkbox path="form.item_wx73924856_hose_kit" label="Universal Hose Kit" />
+              </core:stack>
+            </core:paper>
+          </core:stack>
+        </core:card>
+
+        <core:card withBorder="true" padding="0" radius="md">
+          <core:stack gap="0">
+            <core:paper p="md" radius="0" style='{"background":"#F5F5F5"}'>
+              <core:group justify="space-between" align="center" wrap="nowrap">
+                <core:stack gap="xs">
+                  <core:text fw="600" size="sm">Order #OX45128763</core:text>
+                  <core:text size="xs" c="dimmed">Oct 5, 2025 · $875.00</core:text>
+                </core:stack>
+                <core:button
+                  variant="subtle"
+                  color="blue"
+                  size="sm"
+                  setPath="form.order_ox45128763_details_open"
+                  setValue="yes"
+                >View Order Details</core:button>
+              </core:group>
+            </core:paper>
+            <core:paper p="md" radius="0">
+              <core:stack gap="sm">
+                <core:checkbox path="form.item_ox45128763_refrigerator" label="Refrigerator - French Door" />
+                <core:checkbox path="form.item_ox45128763_water_filter" label="Replacement Water Filter" />
+                <core:checkbox path="form.item_ox45128763_installation" label="Refrigerator Installation" />
+              </core:stack>
+            </core:paper>
+          </core:stack>
+        </core:card>
+
+        <core:card withBorder="true" padding="0" radius="md">
+          <core:stack gap="0">
+            <core:paper p="md" radius="0" style='{"background":"#F5F5F5"}'>
+              <core:group justify="space-between" align="center" wrap="nowrap">
+                <core:stack gap="xs">
+                  <core:text fw="600" size="sm">Order #WX92146537</core:text>
+                  <core:text size="xs" c="dimmed">Sep 15, 2025 · $2,340.50</core:text>
+                </core:stack>
+                <core:button
+                  variant="subtle"
+                  color="blue"
+                  size="sm"
+                  setPath="form.order_wx92146537_details_open"
+                  setValue="yes"
+                >View Order Details</core:button>
+              </core:group>
+            </core:paper>
+            <core:paper p="md" radius="0">
+              <core:stack gap="sm">
+                <core:checkbox path="form.item_wx92146537_washer" label="Washer - Front Load" />
+                <core:checkbox path="form.item_wx92146537_pedestal" label="Laundry Pedestal" />
+                <core:checkbox path="form.item_wx92146537_haul_away" label="Haul Away Service" />
+                <core:checkbox path="form.item_wx92146537_installation" label="Washer Installation" />
+              </core:stack>
+            </core:paper>
+          </core:stack>
+        </core:card>
+      </core:stack>
+
+      <core:divider />
+
+      <core:group gap="sm" justify="flex-end">
+        <core:button variant="filled" color="orange" action="submitForm">Confirm selected items</core:button>
+      </core:group>
+    </core:if>
+
+    <core:if path="form.order_wx73924856_details_open" equals="yes">
+      <core:box style='{"position":"absolute","top":"0","left":"0","right":"0","bottom":"0","overflow":"auto","background":"rgba(0,0,0,0.55)","display":"flex","flexDirection":"column","justifyContent":"flex-end","alignItems":"center","padding":"24px"}'>
+        <core:paper withBorder="true" radius="md" style='{"position":"relative","maxWidth":"720px","width":"100%","flexShrink":0}'>
+          <core:stack gap="0">
+            <core:box style='{"padding":"24px"}'>
+              <core:group justify="space-between" align="flex-start" wrap="nowrap">
+                <core:stack gap="xs">
+                  <core:title order="4">Order Details</core:title>
+                  <core:text size="sm" c="dimmed">Order #WX73924856 · 2025-10-10 · $1,245.32</core:text>
+                </core:stack>
+                <core:button variant="subtle" size="sm" setPath="form.order_wx73924856_details_open" setValue="no">✕</core:button>
+              </core:group>
+            </core:box>
+
+            <core:divider />
+
+            <core:box style='{"padding":"24px","overflow":"auto"}'>
+              <core:stack gap="lg">
+                <core:stack gap="md">
+                  <core:group justify="space-between" align="center">
+                    <core:group gap="sm" align="center">
+                      <core:themeIcon color="orange" variant="light" size="md">📦</core:themeIcon>
+                      <core:text fw="600" size="sm">Order Items (2)</core:text>
+                    </core:group>
+                    <core:group gap="xs" align="center">
+                      <core:text size="sm">Select All</core:text>
+                      <core:if path="form.wx73924856_modal_select_all" equals="false">
+                        <core:button
+                          variant="subtle"
+                          size="sm"
+                          style='{"padding":"0","height":"auto"}'
+                          setPaths='[{"path":"form.item_wx73924856_dishwasher","value":true},{"path":"form.item_wx73924856_hose_kit","value":true},{"path":"form.wx73924856_modal_select_all","value":true}]'
+                        >
+                          <core:checkbox path="form.wx73924856_modal_select_all" label=" " disabled="true" />
+                        </core:button>
+                      </core:if>
+                      <core:if path="form.wx73924856_modal_select_all" equals="true">
+                        <core:button
+                          variant="subtle"
+                          size="sm"
+                          style='{"padding":"0","height":"auto"}'
+                          setPaths='[{"path":"form.item_wx73924856_dishwasher","value":false},{"path":"form.item_wx73924856_hose_kit","value":false},{"path":"form.wx73924856_modal_select_all","value":false}]'
+                        >
+                          <core:checkbox path="form.wx73924856_modal_select_all" label=" " disabled="true" />
+                        </core:button>
+                      </core:if>
+                    </core:group>
+                  </core:group>
+
+                  <core:stack gap="sm">
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="dishwasher">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_wx73924856_dishwasher" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Dishwasher - Stainless Steel</core:text>
+                                <core:text size="xs" c="dimmed">SKU: DISH-2024-SS · Qty: 1 · $1,199.99 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Stainless steel finish. Standard 24-inch built-in dishwasher with quiet wash cycle.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="hose_kit">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_wx73924856_hose_kit" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Universal Hose Kit</core:text>
+                                <core:text size="xs" c="dimmed">SKU: HOSE-KIT-100 · Qty: 1 · $45.33 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Universal dishwasher and washing machine hose kit with braided stainless steel lines.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+                  </core:stack>
+                </core:stack>
+
+                <core:stack gap="md">
+                  <core:group gap="sm" align="center">
+                    <core:themeIcon color="orange" variant="light" size="md">📝</core:themeIcon>
+                    <core:text fw="600" size="sm">Order Notes</core:text>
+                  </core:group>
+
+                  <core:stack gap="sm">
+                    <core:paper withBorder="true" radius="md" p="md">
+                      <core:stack gap="sm">
+                        <core:group justify="space-between" align="center">
+                          <core:text fw="600" size="sm">Agent: Sarah M.</core:text>
+                          <core:text size="xs" c="dimmed">Oct 8, 2025 2:14 PM</core:text>
+                        </core:group>
+                        <core:text size="sm">Customer called regarding delayed delivery. Provided tracking update and confirmed delivery window.</core:text>
+                      </core:stack>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md">
+                      <core:stack gap="sm">
+                        <core:group justify="space-between" align="center">
+                          <core:text fw="600" size="sm">Agent: Michael R.</core:text>
+                          <core:text size="xs" c="dimmed">Oct 5, 2025 10:42 AM</core:text>
+                        </core:group>
+                        <core:text size="sm">Order placed. Customer requested installation service. Added installation kit to order.</core:text>
+                      </core:stack>
+                    </core:paper>
+                  </core:stack>
+                </core:stack>
+              </core:stack>
+            </core:box>
+
+            <core:divider />
+
+            <core:box style='{"padding":"16px 24px"}'>
+              <core:group justify="space-between" align="center">
+                <core:button variant="default" setPath="form.order_wx73924856_details_open" setValue="no">Close</core:button>
+
+                <core:if path="form.item_wx73924856_dishwasher" equals="false">
+                  <core:if path="form.item_wx73924856_hose_kit" equals="false">
+                    <core:button variant="filled" color="orange" setPath="form.order_wx73924856_details_open" setValue="no">Use Selected Items (0)</core:button>
+                  </core:if>
+                </core:if>
+                <core:if path="form.item_wx73924856_dishwasher" equals="true">
+                  <core:if path="form.item_wx73924856_hose_kit" equals="false">
+                    <core:button variant="filled" color="orange" setPath="form.order_wx73924856_details_open" setValue="no">Use Selected Items (1)</core:button>
+                  </core:if>
+                </core:if>
+                <core:if path="form.item_wx73924856_dishwasher" equals="false">
+                  <core:if path="form.item_wx73924856_hose_kit" equals="true">
+                    <core:button variant="filled" color="orange" setPath="form.order_wx73924856_details_open" setValue="no">Use Selected Items (1)</core:button>
+                  </core:if>
+                </core:if>
+                <core:if path="form.item_wx73924856_dishwasher" equals="true">
+                  <core:if path="form.item_wx73924856_hose_kit" equals="true">
+                    <core:button variant="filled" color="orange" setPath="form.order_wx73924856_details_open" setValue="no">Use Selected Items (2)</core:button>
+                  </core:if>
+                </core:if>
+              </core:group>
+            </core:box>
+          </core:stack>
+        </core:paper>
+      </core:box>
+    </core:if>
+
+    <core:if path="form.order_ox45128763_details_open" equals="yes">
+      <core:box style='{"position":"absolute","top":"0","left":"0","right":"0","bottom":"0","overflow":"auto","background":"rgba(0,0,0,0.55)","display":"flex","flexDirection":"column","justifyContent":"flex-end","alignItems":"center","padding":"24px"}'>
+        <core:paper withBorder="true" radius="md" style='{"position":"relative","maxWidth":"720px","width":"100%","flexShrink":0}'>
+          <core:stack gap="0">
+            <core:box style='{"padding":"24px"}'>
+              <core:group justify="space-between" align="flex-start" wrap="nowrap">
+                <core:stack gap="xs">
+                  <core:title order="4">Order Details</core:title>
+                  <core:text size="sm" c="dimmed">Order #OX45128763 · 2025-10-05 · $875.00</core:text>
+                </core:stack>
+                <core:button variant="subtle" size="sm" setPath="form.order_ox45128763_details_open" setValue="no">✕</core:button>
+              </core:group>
+            </core:box>
+
+            <core:divider />
+
+            <core:box style='{"padding":"24px","overflow":"auto"}'>
+              <core:stack gap="lg">
+                <core:stack gap="md">
+                  <core:group justify="space-between" align="center">
+                    <core:group gap="sm" align="center">
+                      <core:themeIcon color="orange" variant="light" size="md">📦</core:themeIcon>
+                      <core:text fw="600" size="sm">Order Items (3)</core:text>
+                    </core:group>
+                    <core:group gap="xs" align="center">
+                      <core:text size="sm">Select All</core:text>
+                      <core:if path="form.ox45128763_modal_select_all" equals="false">
+                        <core:button
+                          variant="subtle"
+                          size="sm"
+                          style='{"padding":"0","height":"auto"}'
+                          setPaths='[{"path":"form.item_ox45128763_refrigerator","value":true},{"path":"form.item_ox45128763_water_filter","value":true},{"path":"form.item_ox45128763_installation","value":true},{"path":"form.ox45128763_modal_select_all","value":true}]'
+                        >
+                          <core:checkbox path="form.ox45128763_modal_select_all" label=" " disabled="true" />
+                        </core:button>
+                      </core:if>
+                      <core:if path="form.ox45128763_modal_select_all" equals="true">
+                        <core:button
+                          variant="subtle"
+                          size="sm"
+                          style='{"padding":"0","height":"auto"}'
+                          setPaths='[{"path":"form.item_ox45128763_refrigerator","value":false},{"path":"form.item_ox45128763_water_filter","value":false},{"path":"form.item_ox45128763_installation","value":false},{"path":"form.ox45128763_modal_select_all","value":false}]'
+                        >
+                          <core:checkbox path="form.ox45128763_modal_select_all" label=" " disabled="true" />
+                        </core:button>
+                      </core:if>
+                    </core:group>
+                  </core:group>
+
+                  <core:stack gap="sm">
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="refrigerator">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_ox45128763_refrigerator" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Refrigerator - French Door</core:text>
+                                <core:text size="xs" c="dimmed">SKU: REF-FD-36SS · Qty: 1 · $749.00 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">36-inch French door refrigerator in stainless steel.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="water_filter">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_ox45128763_water_filter" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Replacement Water Filter</core:text>
+                                <core:text size="xs" c="dimmed">SKU: WF-REF-200 · Qty: 1 · $49.99 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">OEM replacement water filter for French door refrigerators.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="installation">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_ox45128763_installation" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Refrigerator Installation</core:text>
+                                <core:text size="xs" c="dimmed">SKU: SVC-INST-REF · Qty: 1 · $125.01 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Professional refrigerator installation and leveling service.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+                  </core:stack>
+                </core:stack>
+
+                <core:stack gap="md">
+                  <core:group gap="sm" align="center">
+                    <core:themeIcon color="orange" variant="light" size="md">📝</core:themeIcon>
+                    <core:text fw="600" size="sm">Order Notes</core:text>
+                  </core:group>
+
+                  <core:paper withBorder="true" radius="md" p="md">
+                    <core:stack gap="sm">
+                      <core:group justify="space-between" align="center">
+                        <core:text fw="600" size="sm">Agent: Lisa K.</core:text>
+                        <core:text size="xs" c="dimmed">Oct 4, 2025 3:22 PM</core:text>
+                      </core:group>
+                      <core:text size="sm">Customer confirmed delivery address and requested installation scheduling.</core:text>
+                    </core:stack>
+                  </core:paper>
+                </core:stack>
+              </core:stack>
+            </core:box>
+
+            <core:divider />
+
+            <core:box style='{"padding":"16px 24px"}'>
+              <core:group justify="space-between" align="center">
+                <core:button variant="default" setPath="form.order_ox45128763_details_open" setValue="no">Close</core:button>
+                <core:button variant="filled" color="orange" setPath="form.order_ox45128763_details_open" setValue="no">Use Selected Items</core:button>
+              </core:group>
+            </core:box>
+          </core:stack>
+        </core:paper>
+      </core:box>
+    </core:if>
+
+    <core:if path="form.order_wx92146537_details_open" equals="yes">
+      <core:box style='{"position":"absolute","top":"0","left":"0","right":"0","bottom":"0","overflow":"auto","background":"rgba(0,0,0,0.55)","display":"flex","flexDirection":"column","justifyContent":"flex-end","alignItems":"center","padding":"24px"}'>
+        <core:paper withBorder="true" radius="md" style='{"position":"relative","maxWidth":"720px","width":"100%","flexShrink":0}'>
+          <core:stack gap="0">
+            <core:box style='{"padding":"24px"}'>
+              <core:group justify="space-between" align="flex-start" wrap="nowrap">
+                <core:stack gap="xs">
+                  <core:title order="4">Order Details</core:title>
+                  <core:text size="sm" c="dimmed">Order #WX92146537 · 2025-09-15 · $2,340.50</core:text>
+                </core:stack>
+                <core:button variant="subtle" size="sm" setPath="form.order_wx92146537_details_open" setValue="no">✕</core:button>
+              </core:group>
+            </core:box>
+
+            <core:divider />
+
+            <core:box style='{"padding":"24px","overflow":"auto"}'>
+              <core:stack gap="lg">
+                <core:stack gap="md">
+                  <core:group justify="space-between" align="center">
+                    <core:group gap="sm" align="center">
+                      <core:themeIcon color="orange" variant="light" size="md">📦</core:themeIcon>
+                      <core:text fw="600" size="sm">Order Items (4)</core:text>
+                    </core:group>
+                    <core:group gap="xs" align="center">
+                      <core:text size="sm">Select All</core:text>
+                      <core:if path="form.wx92146537_modal_select_all" equals="false">
+                        <core:button
+                          variant="subtle"
+                          size="sm"
+                          style='{"padding":"0","height":"auto"}'
+                          setPaths='[{"path":"form.item_wx92146537_washer","value":true},{"path":"form.item_wx92146537_pedestal","value":true},{"path":"form.item_wx92146537_haul_away","value":true},{"path":"form.item_wx92146537_installation","value":true},{"path":"form.wx92146537_modal_select_all","value":true}]'
+                        >
+                          <core:checkbox path="form.wx92146537_modal_select_all" label=" " disabled="true" />
+                        </core:button>
+                      </core:if>
+                      <core:if path="form.wx92146537_modal_select_all" equals="true">
+                        <core:button
+                          variant="subtle"
+                          size="sm"
+                          style='{"padding":"0","height":"auto"}'
+                          setPaths='[{"path":"form.item_wx92146537_washer","value":false},{"path":"form.item_wx92146537_pedestal","value":false},{"path":"form.item_wx92146537_haul_away","value":false},{"path":"form.item_wx92146537_installation","value":false},{"path":"form.wx92146537_modal_select_all","value":false}]'
+                        >
+                          <core:checkbox path="form.wx92146537_modal_select_all" label=" " disabled="true" />
+                        </core:button>
+                      </core:if>
+                    </core:group>
+                  </core:group>
+
+                  <core:stack gap="sm">
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="washer">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_wx92146537_washer" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Washer - Front Load</core:text>
+                                <core:text size="xs" c="dimmed">SKU: WASH-FL-28WH · Qty: 1 · $1,899.00 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Front-load washer with steam sanitize cycle.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="pedestal">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_wx92146537_pedestal" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Laundry Pedestal</core:text>
+                                <core:text size="xs" c="dimmed">SKU: PED-WH-14 · Qty: 1 · $299.00 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Matching laundry pedestal with storage drawer.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="haul_away">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_wx92146537_haul_away" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Haul Away Service</core:text>
+                                <core:text size="xs" c="dimmed">SKU: SVC-HAUL-01 · Qty: 1 · $79.50 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Old appliance haul-away at time of delivery.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+
+                    <core:paper withBorder="true" radius="md" p="md" style='{"background":"#F5F5F5"}'>
+                      <core:accordion variant="contained" radius="md" chevronPosition="right">
+                        <core:accordionItem value="installation">
+                          <core:accordionControl>
+                            <core:group gap="sm" align="flex-start" wrap="nowrap">
+                              <core:checkbox path="form.item_wx92146537_installation" label=" " />
+                              <core:stack gap="xs">
+                                <core:text fw="600" size="sm">Washer Installation</core:text>
+                                <core:text size="xs" c="dimmed">SKU: SVC-INST-WASH · Qty: 1 · $121.00 each</core:text>
+                                <core:group gap="xs">
+                                  <core:badge color="green" variant="light">Delivered</core:badge>
+                                  <core:badge color="grape" variant="light">Returnable</core:badge>
+                                </core:group>
+                              </core:stack>
+                            </core:group>
+                          </core:accordionControl>
+                          <core:accordionPanel>
+                            <core:text size="sm" c="dimmed">Washer installation with pedestal attachment.</core:text>
+                          </core:accordionPanel>
+                        </core:accordionItem>
+                      </core:accordion>
+                    </core:paper>
+                  </core:stack>
+                </core:stack>
+
+                <core:stack gap="md">
+                  <core:group gap="sm" align="center">
+                    <core:themeIcon color="orange" variant="light" size="md">📝</core:themeIcon>
+                    <core:text fw="600" size="sm">Order Notes</core:text>
+                  </core:group>
+
+                  <core:paper withBorder="true" radius="md" p="md">
+                    <core:stack gap="sm">
+                      <core:group justify="space-between" align="center">
+                        <core:text fw="600" size="sm">Agent: David P.</core:text>
+                        <core:text size="xs" c="dimmed">Sep 12, 2025 11:05 AM</core:text>
+                      </core:group>
+                      <core:text size="sm">Customer requested haul-away of existing washer. Confirmed pedestal color match.</core:text>
+                    </core:stack>
+                  </core:paper>
+                </core:stack>
+              </core:stack>
+            </core:box>
+
+            <core:divider />
+
+            <core:box style='{"padding":"16px 24px"}'>
+              <core:group justify="space-between" align="center">
+                <core:button variant="default" setPath="form.order_wx92146537_details_open" setValue="no">Close</core:button>
+                <core:button variant="filled" color="orange" setPath="form.order_wx92146537_details_open" setValue="no">Use Selected Items</core:button>
+              </core:group>
+            </core:box>
+          </core:stack>
+        </core:paper>
+      </core:box>
+    </core:if>
+  </core:stack>
+</core:card>
